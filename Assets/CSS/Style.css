@@ -7,7 +7,7 @@
     color: #321839;
 
     /* debugging */
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
 }
 
 /* made entire body a lilac color and made default text in body container monospace*/
@@ -26,6 +26,9 @@ h1,h2 {
     text-align: center;
 }
 
+li  {
+    list-style: none;
+}
 /* outer container section */
 /* flex prevents it from flowing out */
 .outside-container {
@@ -61,10 +64,11 @@ button {
 }
 
 /* quiz intro is contained and isn't spread out throughout the entire contaier */
-.quiz-intro {
+.quiz-intro, main {
     margin-top: 25vh;
     margin-left: 15vh;
     margin-right: 15vh;
+    background-color: #F6E18E;
 }
 
 /* display block then auto margin will make the button align in the middle */
@@ -72,6 +76,10 @@ button {
     display: block;
     border-radius: 8px;
     margin: auto;
-    
 }
+
+main{
+    display: none;
+}
+
 
