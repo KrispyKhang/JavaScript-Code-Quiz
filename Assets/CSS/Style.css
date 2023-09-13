@@ -3,8 +3,11 @@
     margin: 0px;
     padding: 0 px;
     box-sizing: border-box;
-    border: 1px solid blue;
     font-family: monospace;
+
+
+    /* debugging */
+    border: 1px solid blue;
 }
 
 /* made entire body a lilac color and made default text in body container monospace*/
@@ -18,9 +21,10 @@ p {
     font-size: 1.3em;
 }
 
-
+/* outer container section */
 .outside-container {
-    padding: 11px; 
+    padding: 10px; 
+    height: 100vh;
 }
 
 
