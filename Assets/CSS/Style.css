@@ -5,18 +5,19 @@
     box-sizing: border-box;
     border: 1px solid blue;
 }
-
+/* made entire body a lilac color and made default text in body container monospace*/
 body {
     background-color: #E7C3F1;
     font-family: monospace;
 
 }
-
+/* made all p tags 1.3em, 1 em = 16px */
 p {
     color: #321839;
+    font-size: 1.3em;
 
 }
 
 .outside-container {
-    padding: 11px;
+    padding: 11px; 
 }
