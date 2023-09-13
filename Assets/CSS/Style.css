@@ -1,23 +1,31 @@
-/* Added a global declaration to help with layour process */
+/* Added a global declaration for default styling*/
 * {
     margin: 0px;
     padding: 0 px;
     box-sizing: border-box;
     border: 1px solid blue;
+    font-family: monospace;
 }
+
 /* made entire body a lilac color and made default text in body container monospace*/
 body {
     background-color: #E7C3F1;
-    font-family: monospace;
-
 }
+
 /* made all p tags 1.3em, 1 em = 16px */
 p {
     color: #321839;
     font-size: 1.3em;
-
 }
+
 
 .outside-container {
     padding: 11px; 
+}
+
+
+button {
+    outline: none;
+    background-color: #E7C3F1;
+    color: #321839;
 }
