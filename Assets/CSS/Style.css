@@ -1,0 +1,7 @@
+/* Added a global declaration to help with layour process */
+* {
+    margin: 0px;
+    padding: 0 px;
+    box-sizing: border-box;
+    border: 1px solid blue;
+}
