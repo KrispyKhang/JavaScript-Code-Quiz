@@ -22,9 +22,21 @@ p {
 }
 
 /* outer container section */
+/* flex prevents it from flowing out */
 .outside-container {
     padding: 10px; 
     height: 100vh;
+    display: flex;
+    flex-direction:column;
+    justify-content:start ;
+    
+}
+
+.inside-container {
+    background: rgba(red, green, blue, alpha);
+    height: 100%;
+    width: 50%;
+    margin: 0 auto;
 }
 
 
