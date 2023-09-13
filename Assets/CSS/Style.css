@@ -19,6 +19,11 @@ body {
 /* made all p tags 1.3em, 1 em = 16px */
 p {
     font-size: 1.3em;
+    text-align: center;
+}
+
+h1,h2 {
+    text-align: center;
 }
 
 /* outer container section */
@@ -40,7 +45,7 @@ p {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 
@@ -56,6 +61,6 @@ button {
 }
 
 .quiz-intro {
-    margin-bottom: 10vh;
+    margin-top: 25vh;
 }
 
