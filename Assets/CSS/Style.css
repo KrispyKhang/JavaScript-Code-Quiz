@@ -48,7 +48,7 @@ h1,h2 {
     justify-content: flex-start;
 }
 
-
+/* stylized button and removed the outline */
 button {
     outline: none;
     background-color: #E7C3F1;
@@ -60,7 +60,18 @@ button {
 
 }
 
+/* quiz intro is contained and isn't spread out throughout the entire contaier */
 .quiz-intro {
     margin-top: 25vh;
+    margin-left: 15vh;
+    margin-right: 15vh;
+}
+
+/* display block then auto margin will make the button align in the middle */
+.quiz-intro button {
+    display: block;
+    border-radius: 8px;
+    margin: auto;
+    
 }
 
