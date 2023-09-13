@@ -5,3 +5,18 @@
     box-sizing: border-box;
     border: 1px solid blue;
 }
+
+body {
+    background-color: #E7C3F1;
+    font-family: monospace;
+
+}
+
+p {
+    color: #321839;
+
+}
+
+.outside-container {
+    padding: 11px;
+}
