@@ -28,4 +28,10 @@ button {
     outline: none;
     background-color: #E7C3F1;
     color: #321839;
+    font-size: 1.3em;
+}
+
+.top-bar p{
+    float: right;
+
 }
