@@ -65,6 +65,7 @@ button {
 
 /* quiz intro is contained and isn't spread out throughout the entire contaier */
 .quiz-intro, main {
+    display: none;
     margin-top: 25vh;
     margin-left: 15vh;
     margin-right: 15vh;
@@ -78,8 +79,19 @@ button {
     margin: auto;
 }
 
+/* hides the context in main by default */
 main{
-    display: none;
+    display: block
 }
 
 
+
+/* question screen section */
+
+.question-screen {
+    display: none;
+}
+
+.finish-screen {
+    
+}
