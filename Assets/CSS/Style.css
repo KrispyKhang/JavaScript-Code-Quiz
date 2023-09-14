@@ -1,7 +1,7 @@
 /* Added a global declaration for default styling*/
 * {
     margin: 0px;
-    padding: 0 px;
+    padding: 0px;
     box-sizing: border-box;
     font-family: monospace;
     color: #321839;
@@ -97,13 +97,16 @@ main{
     display: none;
 }
 
-.highscores-screen {
+.highscore-screen {
     display: block;
 }
 
 /* scroll bar will be on the y-axis once overflowed past 200px */
-.highscores-screen ol {
+.highscore-screen ol {
     overflow-y: scroll;
-    max-height: 200px;
-    
+    max-height: 150px;
+}
+
+.highscore-screen button {
+    display: flex;
 }
