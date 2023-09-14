@@ -88,9 +88,22 @@ main{
 }
 
 
-
+.finish-screen {
+    display: none;
+}
 /* question screen section */
 
 .question-screen {
     display: none;
+}
+
+.highscores-screen {
+    display: block;
+}
+
+/* scroll bar will be on the y-axis once overflowed past 200px */
+.highscores-screen ol {
+    overflow-y: scroll;
+    max-height: 200px;
+    
 }
