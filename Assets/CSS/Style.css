@@ -19,7 +19,6 @@ body {
 /* made all p tags 1.3em, 1 em = 16px */
 p {
     font-size: 1.3em;
-    text-align: center;
 }
 
 h1,h2 {
@@ -79,6 +78,10 @@ button {
     margin: auto;
 }
 
+.quiz-intro p {
+    text-align: center;
+}
+
 /* hides the context in main by default */
 main{
     display: block
@@ -90,8 +93,4 @@ main{
 
 .question-screen {
     display: none;
-}
-
-.finish-screen {
-    
 }
