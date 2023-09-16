@@ -1,13 +1,14 @@
 const startBtn = document.querySelector("#startbtn");
 const quizIntro = document.querySelector(".quiz-intro");
 const questions = document.querySelector(".question-screen");
-const question1 = document.querySelector("#quiz-question1");
-const question2 = document.querySelector("#quiz-question2");
-const question3 = document.querySelector("#quiz-question3");
-const question4 = document.querySelector("#quiz-question4");
+const button1 = document.querySelector("#quiz-question1");
+const button2 = document.querySelector("#quiz-question2");
+const button3 = document.querySelector("#quiz-question3");
+const button4 = document.querySelector("#quiz-question4");
+const questionText = document.querySelector("#question-text")
 let currentQuestion = 0
 
-
+// f2 changes the name of the variable in all the places it's in,
 
 // Defining quiz questions and answers
 const quizData = [
@@ -29,17 +30,26 @@ const quizData = [
 ]
 startBtn.addEventListener("click", startGame);
 
-function startGame(){
+function startGame() {
     quizIntro.classList.add("hidestuff");
-    questions.classList.remove("hidestuff") 
+    questions.classList.remove("hidestuff")
+
+    changeQuestion();
 
     // hide the quiz-intro
     // show the question-screen
 }
 
-function changeQuestion() {
-    question1.textContent = quizData[currentQuestions].answers[0];
-    question2.textContent = quizData[currentQuestions].answers[1];
-    question3.textContent = quizData[currentQuestions].answers[2];
 
+function changeQuestion() {
+    questionText.textContent = quizData[currentQuestion].question;
+    button1.textContent = quizData[currentQuestion].answers[0];
+    button2.textContent = quizData[currentQuestion].answers[1];
+    button3.textContent = quizData[currentQuestion].answers[2];
+    button4.textContent = quizData[currentQuestion].answers[3];
 }
+
+button1.addEventListener("click", evaluateAnswer);
+button2.addEventListener("click", evaluateAnswer);
+button3.addEventListener("click", evaluateAnswer);
+button4.addEventListener("click", evaluateAnswer);
