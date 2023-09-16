@@ -64,7 +64,7 @@ button {
 
 /* quiz intro is contained and isn't spread out throughout the entire contaier */
 .quiz-intro, main {
-    display: none;
+    /* display: none; */
     margin-top: 25vh;
     margin-left: 15vh;
     margin-right: 15vh;
@@ -82,24 +82,6 @@ button {
     text-align: center;
 }
 
-/* hides the context in main by default */
-main{
-    display: block
-}
-
-
-.finish-screen {
-    display: none;
-}
-/* question screen section */
-
-.question-screen {
-    display: none;
-}
-
-.highscore-screen {
-    display: block;
-}
 
 /* scroll bar will be on the y-axis once overflowed past 200px */
 .highscore-screen ol {
@@ -109,4 +91,8 @@ main{
 
 .highscore-screen button {
     display: flex;
+}
+
+.hidestuff {
+    display: none;
 }
