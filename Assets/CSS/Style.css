@@ -21,22 +21,24 @@ p {
     font-size: 1.3em;
 }
 
-h1,h2 {
+h1,
+h2 {
     text-align: center;
 }
 
-li  {
+li {
     list-style: none;
 }
+
 /* outer container section */
 /* flex prevents it from flowing out */
 .outside-container {
-    padding: 10px; 
+    padding: 10px;
     height: 100vh;
     display: flex;
-    flex-direction:column;
-    justify-content:start ;
-    
+    flex-direction: column;
+    justify-content: start;
+
 }
 
 /* inner container section */
@@ -57,13 +59,14 @@ button {
     font-size: 1.3em;
 }
 
-.top-bar p{
+.top-bar p {
     float: right;
 
 }
 
 /* quiz intro is contained and isn't spread out throughout the entire contaier */
-.quiz-intro, main {
+.quiz-intro,
+main {
     /* display: none; */
     margin-top: 25vh;
     margin-left: 15vh;
@@ -95,4 +98,12 @@ button {
 
 .hidestuff {
     display: none;
+}
+
+.incorrect {
+    background-color: red;
+}
+
+.correct {
+    background-color: green;
 }

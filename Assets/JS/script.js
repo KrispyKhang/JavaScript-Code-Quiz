@@ -6,11 +6,12 @@ const button2 = document.querySelector("#quiz-question2");
 const button3 = document.querySelector("#quiz-question3");
 const button4 = document.querySelector("#quiz-question4");
 const questionText = document.querySelector("#question-text")
-let currentQuestion = 0
+let currentQuestion = 0;
 const endScreen = document.querySelector(".finish-screen");
 let secondsRemaining = 60;
-const timeDisplay = document.querySelector("#time-display")
+const timeDisplay = document.querySelector("#time-display");
 let timer;
+const highScore = document.querySelector(".highscore-screen");
 
 
 // f2 changes the name of the variable in all the places it's in,
@@ -42,10 +43,11 @@ function startGame() {
     // start the timer
     timer = setInterval(() => {
         secondsRemaining--;
-        if (secondsRemaining <= 0){
+        // timer will go down and will stop at 0 and not negative numbers (Math.max)
+        if (secondsRemaining <= 0) {
             endGame()
         }
-        timeDisplay.textContent = Math.max(0,secondsRemaining)
+        timeDisplay.textContent = Math.max(0, secondsRemaining)
     }, 1000)
 
     changeQuestion();
@@ -54,7 +56,8 @@ function startGame() {
     // show the question-screen
 }
 
-
+// button variable will display quizData questions.
+// let currentQuestion will run starting from array[0] from quizData
 function changeQuestion() {
     questionText.textContent = quizData[currentQuestion].question;
     button1.textContent = quizData[currentQuestion].answers[0];
@@ -68,30 +71,61 @@ button2.addEventListener("click", evaluateAnswer);
 button3.addEventListener("click", evaluateAnswer);
 button4.addEventListener("click", evaluateAnswer);
 
+
+// event is the object and result of the addEventListener
 function evaluateAnswer(event) {
 
+    const answerButton = event.target
+    console.log(event.target)
+
+
     // console.log(event.target.dataset.answerIndex);cu
-    const chosenAnswer = event.target.dataset.answerIndex;
+    const chosenAnswer = answerButton.dataset.answerIndex;
     const correctAnswer = quizData[currentQuestion].correct
 
     const isCorrect = chosenAnswer == correctAnswer;
     console.log(isCorrect ? "correct" : "wrong");
 
-    if (!isCorrect){
-        secondsRemaining -=10;
-        if (secondsRemaining <= 0){
+    const buttons = [button1, button2, button3, button4]
+
+    if (!isCorrect) {
+        secondsRemaining -= 10;
+        if (secondsRemaining <= 0) {
             endGame()
         }
         timeDisplay.textContent = Math.max(0, secondsRemaining)
     }
-    // add points if correct, take a way time if wrong
 
-    // advance to next question
-    currentQuestion++;
+    buttons.forEach((button) => {
+        // no pointer events
+        button.style.pointerEvents = "none";
 
-    if (currentQuestion >= quizData.length) {
-        endGame()
-    } else changeQuestion();
+        if (button.dataset.answerIndex == correctAnswer) {
+            button.classList.add('correct')
+        } else {
+            button.classList.add('incorrect')
+        }
+    })
+
+
+    setTimeout(() => {
+        console.log('hello')
+
+        buttons.forEach((button) => {
+            button.style.pointerEvents = 'auto';
+            button.classList.remove('correct')
+            button.classList.remove('incorrect')
+        })
+
+        currentQuestion++;
+
+        if (currentQuestion >= quizData.length) {
+            endGame()
+        } else changeQuestion();
+
+    }, 1000)
+
+
 
 }
 
@@ -103,4 +137,9 @@ function endGame() {
     endScreen.classList.remove("hidestuff")
 
     clearInterval(timer)
+}
+
+
+function highscoreScreen() {
+
 }
