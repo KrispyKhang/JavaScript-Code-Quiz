@@ -1,6 +1,14 @@
-const startbtn = document.querySelector("#startbtn");
-const quizintro = document.querySelector(".quiz-intro");
-const questions = document.querySelector(".question-screen")
+const startBtn = document.querySelector("#startbtn");
+const quizIntro = document.querySelector(".quiz-intro");
+const questions = document.querySelector(".question-screen");
+const question1 = document.querySelector("#quiz-question1");
+const question2 = document.querySelector("#quiz-question2");
+const question3 = document.querySelector("#quiz-question3");
+const question4 = document.querySelector("#quiz-question4");
+let currentQuestion = 0
+
+
+
 // Defining quiz questions and answers
 const quizData = [
     {
@@ -19,12 +27,19 @@ const quizData = [
         correct: 1,
     },
 ]
-startbtn.addEventListener("click", startGame);
+startBtn.addEventListener("click", startGame);
 
 function startGame(){
-    quizintro.classList.add("hidestuff");
-    questions.classList.remove("hidestuff")
+    quizIntro.classList.add("hidestuff");
+    questions.classList.remove("hidestuff") 
 
     // hide the quiz-intro
     // show the question-screen
+}
+
+function changeQuestion() {
+    question1.textContent = quizData[currentQuestions].answers[0];
+    question2.textContent = quizData[currentQuestions].answers[1];
+    question3.textContent = quizData[currentQuestions].answers[2];
+
 }
