@@ -12,6 +12,8 @@ let secondsRemaining = 60;
 const timeDisplay = document.querySelector("#time-display");
 let timer;
 const highScore = document.querySelector(".highscore-screen");
+let score = 0;
+const scoreDisplay = document.querySelector("#score-display");
 
 
 // f2 changes the name of the variable in all the places it's in,
@@ -94,6 +96,8 @@ function evaluateAnswer(event) {
             endGame()
         }
         timeDisplay.textContent = Math.max(0, secondsRemaining)
+    } else {
+        score += 10;
     }
 
     buttons.forEach((button) => {
@@ -135,8 +139,9 @@ function endGame() {
     questions.classList.add("hidestuff")
     // show finish-screen
     endScreen.classList.remove("hidestuff")
-
+    scoreDisplay.textContent = score;
     clearInterval(timer)
+    
 }
 
 
