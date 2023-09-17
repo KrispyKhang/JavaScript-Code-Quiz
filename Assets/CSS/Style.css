@@ -201,6 +201,6 @@ table {
 }
 
 
-@media (max-width: 768px) {
-    .quiz-intro{}
+@media screen and (max-width: 768px) {
+    
 }
