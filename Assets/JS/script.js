@@ -14,7 +14,9 @@ let timer;
 const highScore = document.querySelector(".highscore-screen");
 let score = 0;
 const scoreDisplay = document.querySelector("#score-display");
-
+const enterInitials = document.querySelector("#enter-initials")
+const goHome = document.querySelector("#homepage")
+const viewHighScoresBtn = document.querySelector('#view-highscores')
 
 // f2 changes the name of the variable in all the places it's in,
 
@@ -26,7 +28,7 @@ const quizData = [
         correct: 0,
     },
     {
-        question: "Which CSS propert is used for changing the text color of an element?",
+        question: "Which CSS property is used for changing the text color of an element?",
         answers: ["text-color", "color", "text-style", "font-color"],
         correct: 1,
     },
@@ -39,6 +41,7 @@ const quizData = [
 startBtn.addEventListener("click", startGame);
 
 function startGame() {
+    viewHighScoresBtn.classList.add('hidestuff');
     quizIntro.classList.add("hidestuff");
     questions.classList.remove("hidestuff")
 
@@ -133,18 +136,93 @@ function evaluateAnswer(event) {
 
 }
 
-function endGame() {
+enterInitials.addEventListener('submit', (e) => {
+    e.preventDefault();
 
+    const formData = new FormData(enterInitials);
+    const scoreToSave = {
+        initials: formData.get('enter-initials'),
+        score
+    }
+
+    saveScore(scoreToSave);
+
+    highscoreScreen();
+})
+
+function endGame() {
+    viewHighScoresBtn.classList.remove('hidestuff');
     // hide question-screen
     questions.classList.add("hidestuff")
     // show finish-screen
     endScreen.classList.remove("hidestuff")
     scoreDisplay.textContent = score;
     clearInterval(timer)
-    
+
 }
 
 
 function highscoreScreen() {
-
+    // hide the endScreen
+    endScreen.classList.add('hidestuff')
+    highScore.classList.remove('hidestuff')
+    displayScores()
+    // show the highscore-screen
 }
+
+goHome.addEventListener('click', () => {
+    // hide the high scores and show the start screen
+    highScore.classList.add('hidestuff')
+    displayScores();
+    quizIntro.classList.remove('hidestuff')
+
+    // reset game
+    score = 0;
+    secondsRemaining = 60;
+    currentQuestion = 0;
+    timeDisplay.textContent = 60;
+
+})
+
+function saveScore(scoreToSave) {
+    const savedScores = JSON.parse(localStorage.getItem("savedScores"))
+   
+    if (!savedScores || savedScores.length === 0) {
+        localStorage.setItem("savedScores", JSON.stringify([scoreToSave]))
+    } else {
+        const scoresToSave = [...savedScores, scoreToSave]
+        localStorage.setItem('savedScores', JSON.stringify(scoresToSave))
+    }
+}
+
+function displayScores(){
+    const savedScores = JSON.parse(localStorage.getItem("savedScores"))
+
+    document.getElementById("table-body").innerHTML = ""
+
+    savedScores.forEach(({initials, score})=>{
+        const rowElement = document.createElement('tr')
+        
+        rowElement.innerHTML = `<td>${initials}</td><td>${score}</td>`
+
+        document.getElementById("table-body").append(rowElement)
+    })
+}
+
+document.getElementById("clear-btn").addEventListener('click', ()=>{
+    localStorage.setItem('savedScores', JSON.stringify([]))
+    displayScores()
+})
+
+viewHighScoresBtn.addEventListener('click', ()=>{
+    //hide quizintro
+    quizIntro.classList.add('hidestuff')
+    highScore.classList.remove('hidestuff')
+    displayScores()
+    // show high score page
+})
+
+// const scoreToSave = {
+//     initials: formData.get('enter-initials'),
+//     score
+// }

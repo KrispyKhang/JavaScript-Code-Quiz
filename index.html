@@ -13,7 +13,7 @@
     <div class="outside-container">
         <!-- Top bar section -->
         <div class="top-bar">
-            <button>View Highscores</button>
+            <button id="view-highscores">View Highscores</button>
             <p>Timer: <span id="time-display">60</span></p>
         </div>
 
@@ -53,9 +53,11 @@
                     <p>Your Score: <span id="score-display"></span></p>
 
                     <!-- Creates Submission form + button -->
-                    <label for="">Enter Initials:</label>
-                    <input type="text">
-                    <button>Submit</button>
+                    <form id="enter-initials">
+                        <label for="enter-initials">Enter Initials:</label>
+                        <input name="enter-initials" type="text">
+                        <button type="submit">Submit</button>
+                    </form>
                 </section>
 
 
@@ -69,12 +71,32 @@
                         <li></li>
                         <li></li>
                     </ol>
-                    <button>Go Back</button>
-                    <button>Clear Highscores</button>
+                    <div class="flex-row">
+                        <button id="homepage">Home</button>
+                        <button id="clear-btn">Clear Highscores</button>
+                    </div>
 
+                    <div id="highscore-table">
+                        
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Initials</th>
+                                    <th>Score</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body">
+                    <!-- 
+                        <tr>
+                            <td>[initials here]</td>
+                            <td>[score here]</td>
+                        <tr>
+                     -->
 
-
-
+                            </tbody>
+                        </table>
+                    
+                    </div>
                 </section>
 
             </main>

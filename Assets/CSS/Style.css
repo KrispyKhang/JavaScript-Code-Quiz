@@ -85,15 +85,21 @@ main {
     text-align: center;
 }
 
+/* .highscore-screen {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} */
 
-/* scroll bar will be on the y-axis once overflowed past 200px */
-.highscore-screen ol {
-    overflow-y: scroll;
-    max-height: 150px;
+#highscore-table{
+    max-height:300px;
+    overflow-y: auto;
 }
 
 .highscore-screen button {
-    display: flex;
+    margin: auto;
+    /* display: flex; */
 }
 
 .hidestuff {
@@ -106,4 +112,23 @@ main {
 
 .correct {
     background-color: green;
+}
+
+th, td {
+    padding: 10px;
+}
+
+table {
+    /* border: 3px solid red; */
+    margin: auto;
+}
+
+.flex-row {
+    /* border: 2px solid lime; */
+    display: flex;
+    flex-direction: column;
+    justify-content: normal;
+    gap: 7px;
+    margin: 30px 0px;
+    /* gap: 100px; */
 }
