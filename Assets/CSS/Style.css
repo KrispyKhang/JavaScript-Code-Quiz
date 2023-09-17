@@ -55,13 +55,30 @@ li {
     justify-content: flex-start;
 }
 
-
+button { 
+    display: inline-block;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
 /* stylized button and removed the outline */
 button {
     outline: none;
     background-color: #E7C3F1;
     font-size: 1.3em;
     padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer
+}
+
+button:hover {
+    transform: scale(1.1); 
+    background-color: #CB6CE6;
+    color: white;
+    border-radius: 6px;
+}
+
+button:active {
+    transform: scale(0.98);
 }
 
 .top-bar {
