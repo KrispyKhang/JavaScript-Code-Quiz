@@ -37,6 +37,42 @@ const quizData = [
         answers: ["Styling webpages", "Creating interactive webpages", "Managing databases", "Sending emails"],
         correct: 1,
     },
+    {
+        question: "Which function is used to output content to the console in Javascript?",
+        answers: ["console.print", "output", "document.write", "console.log"],
+        correct: 3,
+
+    },
+    {
+        question: "How do you select an HTML element with id 'myElement' in CSS?",
+        answers: ["#myElement", ".myElement", "element:myElement", "myElement::id"],
+        correct: 0,
+    },
+    {
+        question: "How do your write an if statement in Javascript?",
+        answers: ["if(condition){}", "case condition", "when condition then", "if condition then{}"],
+        correct: 0,
+    },
+    {
+        question: "Which HTML tag is used to define a table row?",
+        answers: ["<tr>", "<row>", "<table-row>", "<td>"],
+        correct: 0,
+    },
+    {
+        question: "What does the CSS property 'margin' control?",
+        answers: ["The border width", "The space between elements", "The element's height", "The element's text size"],
+        correct: 1,
+    },
+    {
+        question: "Which operator is used for quality comparison in Javascript?",
+        answers: ["=", "==", "===", "!="],
+        correct: 1,
+    },
+    {
+        question: "What is the purpose of the Javascript 'for' loop?",
+        answers: ["To define a function", "To create a conditional statement", "To repeat a block of code a specific number of times", "To preform mathemetical calculations"],
+        correct: 2,
+    },
 ]
 startBtn.addEventListener("click", startGame);
 
@@ -84,7 +120,7 @@ function evaluateAnswer(event) {
     console.log(event.target)
 
 
-    // console.log(event.target.dataset.answerIndex);cu
+    // console.log(event.target.dataset.answerIndex);
     const chosenAnswer = answerButton.dataset.answerIndex;
     const correctAnswer = quizData[currentQuestion].correct
 
@@ -100,11 +136,14 @@ function evaluateAnswer(event) {
         }
         timeDisplay.textContent = Math.max(0, secondsRemaining)
     } else {
+        // adds the score of 10 per each questions answered
         score += 10;
     }
 
     buttons.forEach((button) => {
         // no pointer events
+        // sets the button.style.pointerEvents to "none" which disables the buttonos temporarily to prevent multiple clicks
+        // during questions evaluation.
         button.style.pointerEvents = "none";
 
         if (button.dataset.answerIndex == correctAnswer) {
@@ -114,18 +153,18 @@ function evaluateAnswer(event) {
         }
     })
 
-
+//  setTimeout(()=>{}, 1000) is a JS functio that schedules a function to be excuted adter a specified amount of time (1000 milliseconds)
     setTimeout(() => {
-        console.log('hello')
-
+    
+        // this code uses the 'forEach' method to iterate through the buttons array which contains references to HTML answer choice buttons
         buttons.forEach((button) => {
             button.style.pointerEvents = 'auto';
             button.classList.remove('correct')
             button.classList.remove('incorrect')
         })
-
+        // this line increments the 'currentquestion' variable , which keeps track of the index of the current question in the quiz"
         currentQuestion++;
-
+        // if no more questions, go to the endgame page where you input your initials to submit to the highscore pages
         if (currentQuestion >= quizData.length) {
             endGame()
         } else changeQuestion();
@@ -136,9 +175,10 @@ function evaluateAnswer(event) {
 
 }
 
-enterInitials.addEventListener('submit', (e) => {
+enterInitials.addEventListener('submit', (e) => {               
     e.preventDefault();
-
+    // formData is a built in object og JS that simplifies the process of caputuring form data,. it takes the form element with the iD
+    // 'enterInitials as the argument, indicating which form to capture data from. 
     const formData = new FormData(enterInitials);
     const scoreToSave = {
         initials: formData.get('enter-initials'),
@@ -154,7 +194,7 @@ function endGame() {
     viewHighScoresBtn.classList.remove('hidestuff');
     // hide question-screen
     questions.classList.add("hidestuff")
-    // show finish-screen
+    // show finish-screens
     endScreen.classList.remove("hidestuff")
     scoreDisplay.textContent = score;
     clearInterval(timer)
@@ -208,12 +248,13 @@ function displayScores(){
         document.getElementById("table-body").append(rowElement)
     })
 }
+// makes the clear highscore button function.
 
 document.getElementById("clear-btn").addEventListener('click', ()=>{
     localStorage.setItem('savedScores', JSON.stringify([]))
     displayScores()
 })
-
+// view highschore button is only shown on the intro page
 viewHighScoresBtn.addEventListener('click', ()=>{
     //hide quizintro
     quizIntro.classList.add('hidestuff')
