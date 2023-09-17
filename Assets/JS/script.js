@@ -242,6 +242,7 @@ goHome.addEventListener('click', () => {
     timeDisplay.textContent = 60;
 
 })
+// had tutor help with saveScore and displayScore for the tables
 
 function saveScore(scoreToSave) {
     const savedScores = JSON.parse(localStorage.getItem("savedScores"))
@@ -281,8 +282,3 @@ viewHighScoresBtn.addEventListener('click', ()=>{
     displayScores()
     // show high score page
 })
-
-// const scoreToSave = {
-//     initials: formData.get('enter-initials'),
-//     score
-// }
