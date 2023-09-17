@@ -33,7 +33,7 @@ const quizData = [
         correct: 1,
     },
     {
-        question: "What is Javascript primaraily used for?",
+        question: "What is Javascript essentially used for?",
         answers: ["Styling webpages", "Creating interactive webpages", "Managing databases", "Sending emails"],
         correct: 1,
     },
@@ -74,12 +74,31 @@ const quizData = [
         correct: 2,
     },
 ]
-startBtn.addEventListener("click", startGame);
+
+
+// shuffleArray on top of startGame to randomize the questions
+startBtn.addEventListener("click", () => {
+    shuffleArray(quizData);
+    startGame();
+});
+
+
+// shuffles the arrays of the questions so its randomized each time we start the quiz
+function shuffleArray (array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+
+}
+
+
 
 function startGame() {
     viewHighScoresBtn.classList.add('hidestuff');
     quizIntro.classList.add("hidestuff");
     questions.classList.remove("hidestuff")
+
 
     // start the timer
     timer = setInterval(() => {
