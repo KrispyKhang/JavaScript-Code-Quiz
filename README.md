@@ -37,5 +37,17 @@ THEN I can save my initials and my score
 * See screenshots below for the finished product.
 
 ## Features
+# Walkthrough
 
 ![](./Assets/Images/CodeQuiz.gif)
+
+* You are presented from the homepage of the Quiz.
+* The top nav bar section displays the highscore button and the timer that gets activated once you start the quiz using Javascript.
+* Highscore button gets hidden once you start the quiz. 
+* Once the quiz starts, the questions are randomized every time using Javascript.
+* 10 seconds gets deducted from 60 seconds every time you get the answer wrong.
+* Total of 10 questions for 10 points each. 100 being the highest score.
+* After quiz completion, you are presented with a page to enter your initials on the form button to submit your highscore. 
+* Your highscore gets logged via local storage meaning next time you try this quiz, you're able to see the previous data. 
+
+# WOO-HOO! Code Quiz Accomplished Using Javascript.
