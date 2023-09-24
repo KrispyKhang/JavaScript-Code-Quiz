@@ -144,8 +144,7 @@ function evaluateAnswer(event) {
     const correctAnswer = quizData[currentQuestion].correct
 
     const isCorrect = chosenAnswer == correctAnswer;
-    console.log(isCorrect ? "correct" : "wrong");
-
+   
     const buttons = [button1, button2, button3, button4]
 
     if (!isCorrect) {
